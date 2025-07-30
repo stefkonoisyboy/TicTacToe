@@ -2,7 +2,7 @@ const cells = document.querySelectorAll(".cell");
 
 cells.forEach((cell) => {
     cell.addEventListener("click", function(e) {
-        gameboard.fill(cell.id, playerTurn);
+        gameboard.fill(cell.id);
     });
 });
 
@@ -28,7 +28,7 @@ const gameboard = (() => {
                     icon.classList.add("fa-circle");
                     buttonToBeFilled.appendChild(icon);
 
-                    playerTurn = 1;
+                    turn = 1;
                     displayController.print("Player X's turn");
                     isGameOver();
                 }
@@ -40,7 +40,7 @@ const gameboard = (() => {
                     icon.classList.add("fa-times");
                     buttonToBeFilled.appendChild(icon);
 
-                    playerTurn = 0;
+                    turn = 0;
                     displayController.print("Player O's turn");
                     isGameOver();
                 }
