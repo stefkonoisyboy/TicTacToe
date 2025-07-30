@@ -1,7 +1,5 @@
-let playerTurn = 0;
-let gameMode = 0;
-
 const cells = document.querySelectorAll(".cell");
+
 cells.forEach((cell) => {
     cell.addEventListener("click", function(e) {
         gameboard.fill(cell.id, playerTurn);
@@ -9,14 +7,15 @@ cells.forEach((cell) => {
 });
 
 const refresh = document.querySelector(".gameRestart");
+
 refresh.addEventListener("click", function(e) {
     location.reload();
 });
 
 const gameboard = (() => {
-    let playersSelections = [];
+    let turn = 0;
 
-    const fill = (buttonId, turn) => {
+    const fill = (buttonId) => {
         if (!isGameOver()) {
             const buttonToBeFilled = document.getElementById(`${buttonId}`);
         
